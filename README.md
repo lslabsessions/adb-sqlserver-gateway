@@ -1,4 +1,4 @@
-# Oracle Autonomous Database to SQL Server: a gateway lab
+# Oracle Autonomous Database to SQL Server using DB_LINK and Oracle Database Gateway
 
 This lab connects Oracle Autonomous Database in OCI Frankfurt to SQL Server on Amazon RDS in AWS Frankfurt. It compares the Oracle-managed heterogeneous connection with a customer-managed Oracle Database Gateway for ODBC running on EC2.
 
