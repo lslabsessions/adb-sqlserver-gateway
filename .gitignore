@@ -1,0 +1,14 @@
+# Secrets and local runtime files
+*.pem
+*.key
+*.p12
+*.sso
+*.sso.lck
+*.p12.lck
+.env
+.env.*
+wallets/
+private/
+*.log
+*.trc
+*.zip
