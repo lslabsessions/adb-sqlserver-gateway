@@ -43,7 +43,6 @@ The customer-managed setup uses Oracle Database Gateway for ODBC (dg4odbc) with 
 | [Tests](docs/testing.md) | Expected results and transaction boundaries |
 | [Troubleshooting](docs/troubleshooting.md) | Errors encountered during the lab |
 | [Operations](docs/operations.md) | Restarting the lab after EC2 stop/start |
-| [Screenshots](docs/screenshots/README.md) | Evidence inventory and publication review |
 
 ## Before running
 
