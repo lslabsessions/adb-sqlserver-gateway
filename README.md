@@ -57,6 +57,6 @@ Credentials and wallets are configured locally and are not included in the repos
 
 Script 035 uses **two separate transactions**. In test 039, an UPDATE in SQL Server affected one row, but a subsequent UPDATE in Oracle, without an intermediate commit, failed with `ORA-02047: cannot join the distributed transaction in progress`. The exception handler then executed ROLLBACK.
 
-The export therefore commits the SQL Server changes before recording the exported source versions in Oracle and committing again. The destination data and the Oracle tracking records are not committed atomically. See [the recorded test](docs/testing.md#distributed-update-test-039).
+The export therefore commits the SQL Server changes before recording the exported source versions in Oracle and committing again. The destination data and the Oracle tracking records are not committed atomically. Check [the recorded test](docs/testing.md#distributed-update-test-039).
 
 A failure between them can leave SQL Server updated while Oracle still considers the rows pending. The update-before-insert logic supports replay in this single-writer lab, but failure recovery and concurrent exporters were not tested. The export uses an in-memory collection and has no batching for large datasets. It does not propagate source deletions.
