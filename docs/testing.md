@@ -47,7 +47,7 @@ ORA-02047: cannot join the distributed transaction in progress
 ROLLBACK AFTER ERROR.
 ```
 
-![Distributed update rejected with ORA-02047](screenshots/090_gateway_distributed_update_test.png)
+![Distributed update rejected with ORA-02047](screenshots/090_gateway_distributed_update_test.jpg)
 
 The SQL Server UPDATE affected one row. The Oracle UPDATE was rejected before a final COMMIT, and the exception handler executed ROLLBACK. The final `PL/SQL procedure successfully completed` message reflected the handled exception, rather than successful completion of both updates.
 
