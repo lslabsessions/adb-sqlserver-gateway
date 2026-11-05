@@ -52,3 +52,14 @@ ROLLBACK AFTER ERROR.
 The SQL Server UPDATE affected one row. The Oracle UPDATE was rejected before a final COMMIT, and the exception handler executed ROLLBACK. The final `PL/SQL procedure successfully completed` message reflected the handled exception, rather than successful completion of both updates.
 
 This result explains the two transaction boundaries in script 035: the SQL Server writes are committed first, followed by the Oracle tracking changes. A failure between those commits can leave destination rows updated while their Oracle tracking records remain unchanged. The update-before-insert logic allows pending rows to be processed again in this single-writer example; recovery from that particular failure scenario was not tested.
+
+
+### Calling a SQL Server stored procedure through the gateway (040–042)
+
+Script 040 created `dbo.gateway_proc_test` and an empty log table in SQL Server.
+From Autonomous Database, script 041 used `DBMS_HS_PASSTHROUGH.EXECUTE_IMMEDIATE`
+to send the T-SQL command `EXEC dbo.gateway_proc_test` through the database link,
+then committed the transaction.
+
+Script 042 queried the log table directly in SQL Server and found one row with
+the marker `ADB_PASSTHROUGH_001`.
